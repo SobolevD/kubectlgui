@@ -36,4 +36,8 @@ public abstract class CommandRunner {
         return fullConsoleOutput;
     }
 
+    public static String runWithSingleReturn(String command) throws IOException {
+        return runWithReturn(command).get(0);
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.netcracker.kubectlgui.controllers;
 
-import com.netcracker.kubectlgui.constants.ApiPath;
+import com.netcracker.kubectlgui.constants.*;
 import com.netcracker.kubectlgui.model.KubectlConfig;
 import com.netcracker.kubectlgui.model.KubectlConfigFormEntity;
 import com.netcracker.kubectlgui.services.FilesService;
@@ -31,26 +31,6 @@ public class ConfigurationController {
     @Autowired
     public ConfigurationController(FilesService filesService) {
         this.filesService = filesService;
-    }
-
-    private interface RedirectPages {
-        String REDIRECT_TO_CONFIGURATIONS = "redirect:/api/kubectl-gui/v1/configuration";
-    }
-
-    private interface Pages {
-        String CONFIGURATION = "configuration";
-    }
-
-    private interface ModelAttributes {
-        String CONFIG = "config";
-        String CONFIG_NAME = "config_name";
-        String EXISTING_CONFIG_NAME = "existing_config";
-        String CONFIGS_FILES_NAMES = "configsFileNames";
-    }
-
-    private interface ConfigKeys {
-        String CONFIG_PATHS = "${kubectl.configs.path}";
-        String USING_CONFIG = "${kubectl.configs.using}";
     }
 
     @GetMapping(ApiPath.CONFIGURATION_PAGE)

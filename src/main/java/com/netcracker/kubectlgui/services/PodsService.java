@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PodsService {
@@ -27,6 +28,11 @@ public class PodsService {
             }
         }
         return runningPods;
+    }
+
+    public List<String> getRunningPodsNames() throws IOException {
+        List<Pod> runningPods = getRunningPods();
+        return runningPods.stream().map(Pod::getName).collect(Collectors.toList());
     }
 
     private List<Pod> getAllPodsFromOutput(List<String> output) {

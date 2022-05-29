@@ -7,4 +7,5 @@ public interface ApiPath {
     String SAVE = "/save";
     String UPDATE = "/update";
     String USE_EXISTING = "/use-existing";
+    String NAVIGATION = "/navigation";
 }
