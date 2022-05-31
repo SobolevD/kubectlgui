@@ -47,8 +47,9 @@ public class NavigationController {
             throw new RuntimeException("Pod name " + podName + " does not exist");
         }
 
-        String currentFolder = CommandRunner.runWithSingleReturn(String.format(Command.GET_CURRENT_FOLDER, podName));
+        String currentFolder = CommandRunner.runWithSingleReturn(String.format(Command.GET_CURRENT_FOLDER, podName), 1);
         List<String> filesNames = CommandRunner.runWithReturn(String.format(Command.GET_FILES, podName));
+        filesNames.remove(0);
 
         model.addAttribute(ModelAttributes.RUNNING_PODS, runningPodsNames);
         model.addAttribute(ModelAttributes.CURRENT_FOLDER, currentFolder);

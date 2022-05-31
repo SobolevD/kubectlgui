@@ -37,7 +37,11 @@ public abstract class CommandRunner {
     }
 
     public static String runWithSingleReturn(String command) throws IOException {
-        return runWithReturn(command).get(0);
+        return runWithSingleReturn(command, 0);
+    }
+
+    public static String runWithSingleReturn(String command, int offset) throws IOException {
+        return runWithReturn(command).get(offset);
     }
 
 }
